@@ -14,24 +14,24 @@ const Uploader = () => {
     console.log(status, meta);
   };
 
-  const handleSubmit = async (e) => {
-    console.log(e);
-    // const f = files[0];
-    // console.log(f["file"]);
-    // // * GET request: presigned URL
-    // try{
-    //   const response = await axios.get(API_ENDPOINT,{
-    //     headers : {
-    //       "Access-Control-Allow-Origin": "*",
-    //       authorizationToken : token
-    //     }
-    //   });
+  const handleSubmit = async (files) => {
+    // console.log(e);
+    const f = files[0];
+    console.log(f["file"]);
+    // * GET request: presigned URL
+    try{
+      const response = await axios.get(API_ENDPOINT,{
+        headers : {
+          "Access-Control-Allow-Origin": "*",
+          authorizationToken : token
+        }
+      });
 
-    //   console.log("Response: ", response);
-    //   console.log(JSON.parse(response.data.body.toString()));
+      console.log("Response: ", response);
+      console.log(JSON.parse(response.data.body.toString()));
 
-    //   const uploadLink = JSON.parse(response.data.body).uploadURL;
-    //   console.log("Upload Link: ", uploadLink);
+      const uploadLink = JSON.parse(response.data.body).uploadURL;
+      console.log("Upload Link: ", uploadLink);
 
       // * PUT request: upload file to S3
       // const result = await fetch(uploadLink, {
@@ -41,11 +41,11 @@ const Uploader = () => {
       // console.log("Result: ", result);
       // alert("File uploaded to AWS successfully");
 
-    // }
-    // catch(error){
-    //   console.log(error);
-    //   alert("Invalid secret token");
-    // }
+    }
+    catch(error){
+      console.log(error);
+      alert("Error");
+    }
   };
 
   return (
