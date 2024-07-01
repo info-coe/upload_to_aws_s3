@@ -14,7 +14,7 @@ const Uploader = () => {
     console.log(status, meta);
   };
 
-  const handleSubmit = async (files) => {
+  const handleSubmit = (files) => {
     // console.log(e);
     const f = files[0];
     console.log(f["file"]);
@@ -31,24 +31,6 @@ const Uploader = () => {
 
       const uploadLink = JSON.parse(response.data.body).uploadURL;
       console.log("Upload Link: ", uploadLink);
-    }).catch((error)=>{
-      console.log(error);
-      alert("Error");
-    });
-    // try{
-    //   const response = await axios.get(API_ENDPOINT,{
-    //     headers : {
-    //       "Access-Control-Allow-Origin": "*",
-    //       authorizationToken : token
-    //     }
-    //   });
-
-    //   console.log("Response: ", response);
-    //   console.log(JSON.parse(response.data.body.toString()));
-
-    //   const uploadLink = JSON.parse(response.data.body).uploadURL;
-    //   console.log("Upload Link: ", uploadLink);
-
     //   // * PUT request: upload file to S3
     //   // const result = await fetch(uploadLink, {
     //   //   method: "PUT",
@@ -56,12 +38,10 @@ const Uploader = () => {
     //   // });
     //   // console.log("Result: ", result);
     //   // alert("File uploaded to AWS successfully");
-
-    // }
-    // catch(error){
-    //   console.log(error);
-    //   alert("Error");
-    // }
+    }).catch((error)=>{
+      console.log(error);
+      alert("Error");
+    });
   };
 
   return (
@@ -91,22 +71,3 @@ const Uploader = () => {
 <Uploader />;
 
 export default Uploader;
-// // import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
-
-// // const client = new S3Client({});
-
-// // export const Main = async () => {
-// //   const command = new GetObjectCommand({
-// //     Bucket: "test-bucket",
-// //     Key: "hello-s3.txt",
-// //   });
-
-// //   try {
-// //     const response = await client.send(command);
-// //     // The Body object also has 'transformToByteArray' and 'transformToWebStream' methods.
-// //     const str = await response.Body.transformToString();
-// //     console.log(str);
-// //   } catch (err) {
-// //     console.error(err);
-// //   }
-// // };
