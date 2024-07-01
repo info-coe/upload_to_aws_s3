@@ -9,7 +9,7 @@ const Uploader = () => {
   const [token,setToken] = useState("");
 
   const API_ENDPOINT =
-    "https://r0lznapmr7.execute-api.us-east-1.amazonaws.com/upload-stage/";
+    "https://16jkxdhqgg.execute-api.us-east-1.amazonaws.com/development/";
   const handleChangeStatus = ({ meta, remove }, status) => {
     console.log(status, meta);
   };
@@ -19,33 +19,49 @@ const Uploader = () => {
     const f = files[0];
     console.log(f["file"]);
     // * GET request: presigned URL
-    try{
-      const response = await axios.get(API_ENDPOINT,{
-        headers : {
-          "Access-Control-Allow-Origin": "*",
-          authorizationToken : token
-        }
-      });
-
+    axios.get(API_ENDPOINT,{
+      headers : {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        authorizationToken : token
+      }
+    }).then((response) => {
       console.log("Response: ", response);
       console.log(JSON.parse(response.data.body.toString()));
 
       const uploadLink = JSON.parse(response.data.body).uploadURL;
       console.log("Upload Link: ", uploadLink);
-
-      // * PUT request: upload file to S3
-      // const result = await fetch(uploadLink, {
-      //   method: "PUT",
-      //   body: f["file"],
-      // });
-      // console.log("Result: ", result);
-      // alert("File uploaded to AWS successfully");
-
-    }
-    catch(error){
+    }).catch((error)=>{
       console.log(error);
       alert("Error");
-    }
+    });
+    // try{
+    //   const response = await axios.get(API_ENDPOINT,{
+    //     headers : {
+    //       "Access-Control-Allow-Origin": "*",
+    //       authorizationToken : token
+    //     }
+    //   });
+
+    //   console.log("Response: ", response);
+    //   console.log(JSON.parse(response.data.body.toString()));
+
+    //   const uploadLink = JSON.parse(response.data.body).uploadURL;
+    //   console.log("Upload Link: ", uploadLink);
+
+    //   // * PUT request: upload file to S3
+    //   // const result = await fetch(uploadLink, {
+    //   //   method: "PUT",
+    //   //   body: f["file"],
+    //   // });
+    //   // console.log("Result: ", result);
+    //   // alert("File uploaded to AWS successfully");
+
+    // }
+    // catch(error){
+    //   console.log(error);
+    //   alert("Error");
+    // }
   };
 
   return (
@@ -53,7 +69,7 @@ const Uploader = () => {
       <div id="token">
         <label>Enter Authorization Token </label>
         <input id="token" type="password" onChange={(e)=>setToken(e.target.value)} autoFocus required/>
-        <button type="button" onClick={handleSubmit}>Submit</button>
+        {/* <button type="button" onClick={handleSubmit}>Submit</button> */}
       </div>
       <Dropzone
         onChangeStatus={handleChangeStatus}
