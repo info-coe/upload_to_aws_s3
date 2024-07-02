@@ -23,6 +23,9 @@ const Uploader = () => {
       headers : {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        // "Access-Control-Request-Headers": "*",
+        "Access-Control-Allow-Methods": "*",
         authorizationToken : token
       }
     }).then((response) => {
@@ -31,13 +34,19 @@ const Uploader = () => {
 
       const uploadLink = JSON.parse(response.data.body).uploadURL;
       console.log("Upload Link: ", uploadLink);
-    //   // * PUT request: upload file to S3
-    //   // const result = await fetch(uploadLink, {
-    //   //   method: "PUT",
-    //   //   body: f["file"],
-    //   // });
-    //   // console.log("Result: ", result);
-    //   // alert("File uploaded to AWS successfully");
+      // * PUT request: upload file to S3
+      axios.put(uploadLink, f["file"]).then((response) => {
+            console.log("Response: ", response);
+            alert("File uploaded to AWS successfully");
+          }).catch((error)=>{
+            console.log(error);
+            alert("Error");
+          });
+      // const result = fetch(uploadLink, {
+      //   method: "PUT",
+      //   body: f["file"],
+      // });
+      // console.log("Result: ", result);
     }).catch((error)=>{
       console.log(error);
       alert("Error");
