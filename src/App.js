@@ -4,7 +4,7 @@ import UploadComponent from "./components/Uploader";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" basename="upload_to_aws_s3">
       {/* <Uploader /> */}
       <UploadComponent/>
     </div>
