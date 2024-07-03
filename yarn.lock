@@ -2593,12 +2593,12 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.2.1.tgz"
   "version" "4.2.1"
 
-"axios@^0.21.1":
-  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
-  "version" "0.21.1"
+"axios@^0.21.4":
+  "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
+  "version" "0.21.4"
   dependencies:
-    "follow-redirects" "^1.10.0"
+    "follow-redirects" "^1.14.0"
 
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
@@ -5211,7 +5211,7 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.3.6"
 
-"follow-redirects@^1.0.0", "follow-redirects@^1.10.0":
+"follow-redirects@^1.0.0", "follow-redirects@^1.14.0":
   "integrity" "sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.1.tgz"
   "version" "1.14.1"
@@ -7320,17 +7320,17 @@
     "bn.js" "^4.0.0"
     "brorand" "^1.0.1"
 
-"mime-db@>= 1.43.0 < 2", "mime-db@1.48.0":
-  "integrity" "sha512-FM3QwxV+TnZYQ2aRqhlKBMHxk10lTbMt3bBkMAp54ddrNeVSfcQYOOKuGuy3Ddrm38I04If834fOUSq1yzslJQ=="
-  "resolved" "https://registry.npmjs.org/mime-db/-/mime-db-1.48.0.tgz"
-  "version" "1.48.0"
+"mime-db@>= 1.43.0 < 2", "mime-db@1.52.0":
+  "integrity" "sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg=="
+  "resolved" "https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz"
+  "version" "1.52.0"
 
-"mime-types@^2.1.12", "mime-types@^2.1.27", "mime-types@~2.1.17", "mime-types@~2.1.24":
-  "integrity" "sha512-XGZnNzm3QvgKxa8dpzyhFTHmpP3l5YNusmne07VUOXxou9CqUqYa/HBy124RqtVh/O2pECas/MOcsDgpilPOPg=="
-  "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.31.tgz"
-  "version" "2.1.31"
+"mime-types@^2.1.12", "mime-types@^2.1.27", "mime-types@^2.1.35", "mime-types@~2.1.17", "mime-types@~2.1.24":
+  "integrity" "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw=="
+  "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz"
+  "version" "2.1.35"
   dependencies:
-    "mime-db" "1.48.0"
+    "mime-db" "1.52.0"
 
 "mime@^2.4.4":
   "integrity" "sha512-tqkh47FzKeCPD2PUiPB6pkbMzsCasjxAfC62/Wap5qrUWcb+sFasXUC5I3gYM5iBM8v/Qpn4UK0x+j0iHyFPDg=="
