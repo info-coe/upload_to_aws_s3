@@ -2553,12 +2553,17 @@
   "resolved" "https://registry.npmjs.org/async-limiter/-/async-limiter-1.0.1.tgz"
   "version" "1.0.1"
 
-"async@^2.6.1", "async@^2.6.2":
+"async@^2.6.2":
   "integrity" "sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg=="
   "resolved" "https://registry.npmjs.org/async/-/async-2.6.3.tgz"
   "version" "2.6.3"
   dependencies:
     "lodash" "^4.17.14"
+
+"async@^3.2.4":
+  "integrity" "sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg=="
+  "resolved" "https://registry.npmjs.org/async/-/async-3.2.5.tgz"
+  "version" "3.2.5"
 
 "asynckit@^0.4.0":
   "integrity" "sha1-x57Zf380y48robyXkLzDZkdLS3k="
@@ -3462,10 +3467,10 @@
   dependencies:
     "delayed-stream" "~1.0.0"
 
-"commander@^2.18.0":
-  "integrity" "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
-  "resolved" "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
-  "version" "2.20.3"
+"commander@^11.0.0":
+  "integrity" "sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ=="
+  "resolved" "https://registry.npmjs.org/commander/-/commander-11.1.0.tgz"
+  "version" "11.1.0"
 
 "commander@^2.20.0":
   "integrity" "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
@@ -4405,10 +4410,10 @@
     "minimalistic-assert" "^1.0.1"
     "minimalistic-crypto-utils" "^1.0.1"
 
-"email-addresses@^3.0.1":
-  "integrity" "sha512-k0/r7GrWVL32kZlGwfPNgB2Y/mMXVTq/decgLczm/j34whdaspNrZO8CnXPf1laaHxI6ptUlsnAxN+UAPw+fzg=="
-  "resolved" "https://registry.npmjs.org/email-addresses/-/email-addresses-3.1.0.tgz"
-  "version" "3.1.0"
+"email-addresses@^5.0.0":
+  "integrity" "sha512-4OIPYlA6JXqtVn8zpHpGiI7vE6EQOAg16aGnDMIAlZVinnoZ8208tW1hAbjWydgN/4PLTT9q+O1K6AH/vALJGw=="
+  "resolved" "https://registry.npmjs.org/email-addresses/-/email-addresses-5.0.0.tgz"
+  "version" "5.0.0"
 
 "emittery@^0.7.1":
   "integrity" "sha512-A8OG5SR/ij3SsJdWDJdkkSYUjQdCUx6APQXem0SaEePBSRg4eymGYwBkKo1Y6DU+af/Jn2dBQqDBvjnr9Vi8nQ=="
@@ -5268,6 +5273,15 @@
     "inherits" "^2.0.1"
     "readable-stream" "^2.0.0"
 
+"fs-extra@^11.1.1":
+  "integrity" "sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw=="
+  "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-11.2.0.tgz"
+  "version" "11.2.0"
+  dependencies:
+    "graceful-fs" "^4.2.0"
+    "jsonfile" "^6.0.1"
+    "universalify" "^2.0.0"
+
 "fs-extra@^7.0.0":
   "integrity" "sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw=="
   "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-7.0.1.tgz"
@@ -5376,17 +5390,17 @@
   "resolved" "https://registry.npmjs.org/get-value/-/get-value-2.0.6.tgz"
   "version" "2.0.6"
 
-"gh-pages@^3.2.3":
-  "integrity" "sha512-jA1PbapQ1jqzacECfjUaO9gV8uBgU6XNMV0oXLtfCX3haGLe5Atq8BxlrADhbD6/UdG9j6tZLWAkAybndOXTJg=="
-  "resolved" "https://registry.npmjs.org/gh-pages/-/gh-pages-3.2.3.tgz"
-  "version" "3.2.3"
+"gh-pages@^6.1.1":
+  "integrity" "sha512-upnohfjBwN5hBP9w2dPE7HO5JJTHzSGMV1JrLrHvNuqmjoYHg6TBrCcnEoorjG/e0ejbuvnwyKMdTyM40PEByw=="
+  "resolved" "https://registry.npmjs.org/gh-pages/-/gh-pages-6.1.1.tgz"
+  "version" "6.1.1"
   dependencies:
-    "async" "^2.6.1"
-    "commander" "^2.18.0"
-    "email-addresses" "^3.0.1"
+    "async" "^3.2.4"
+    "commander" "^11.0.0"
+    "email-addresses" "^5.0.0"
     "filenamify" "^4.3.0"
     "find-cache-dir" "^3.3.1"
-    "fs-extra" "^8.1.0"
+    "fs-extra" "^11.1.1"
     "globby" "^6.1.0"
 
 "glob-parent@^3.1.0":
