@@ -3,63 +3,145 @@ import axios from 'axios';
 import mime from 'mime-types';
 
 const UploadComponent = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFiles, setSelectedFiles] = useState([]);
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    setSelectedFiles([...event.target.files]);
   };
 
   const handleUpload = () => {
-    if (!selectedFile) {
-      alert('Please select a file');
+    if (selectedFiles.length === 0) {
+      alert('Please select files');
       return;
     }
+
+    selectedFiles.forEach((file) => {
       // Prepare FormData with the file and filename
       const formData = new FormData();
-      formData.append('file', selectedFile);
-      formData.append('filename', selectedFile.name);
+      formData.append('file', file);
+      formData.append('filename', file.name);
 
-      // Send a POST request to your API Gateway endpoint to get the pre-signed URL and file key
-      axios.get('https://16jkxdhqgg.execute-api.us-east-1.amazonaws.com/development/',  {
+      // Send a GET request to your API Gateway endpoint to get the pre-signed URL and file key
+      axios.get('https://16jkxdhqgg.execute-api.us-east-1.amazonaws.com/development/', {
         headers: {
-          authorizationToken : "authorizer",
+          authorizationToken: "authorizer",
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "*",
-          // "Access-Control-Request-Headers": "*",
           "Access-Control-Allow-Methods": "*",
         }
       }).then((response) => {
         const uploadUrl = JSON.parse(response.data.body).uploadUrl;
         console.log(response);
         console.log(uploadUrl);
-  
+
         // Send a PUT request to the pre-signed URL with the file content
-        axios.put(uploadUrl, selectedFile, {
+        axios.put(uploadUrl, file, {
           headers: {
-            'Content-Type': mime.lookup(selectedFile.name) || 'application/octet-stream'
+            'Content-Type': mime.lookup(file.name) || 'application/octet-stream'
           }
-        }).then((res)=>{
+        }).then((res) => {
           console.log(res);
-          alert(`File uploaded successfully to S3`);
+          alert(`File ${file.name} uploaded successfully to S3`);
+          // setSelectedFiles([]);
           window.location.reload(false);
-        }).catch((err)=>{
+        }).catch((err) => {
           console.log(err);
         });
       }).catch((error) => {
-      console.error('Error uploading file to S3:', error);
+        console.error('Error uploading file to S3:', error);
+      });
     });
+  };
+
+  const handleRemoveFile = (fileToRemove) => {
+    setSelectedFiles(selectedFiles.filter(file => file !== fileToRemove));
   };
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange} multiple />
       <button onClick={handleUpload}>Upload</button>
+      <div>
+        <h3>Selected Files:</h3>
+        <ul>
+          {selectedFiles.map((file, index) => (
+            <li key={index}>
+              {file.name} <button onClick={() => handleRemoveFile(file)}>Cancel</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default UploadComponent;
+
+
+
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import mime from 'mime-types';
+
+// const UploadComponent = () => {
+//   const [selectedFile, setSelectedFile] = useState(null);
+
+//   const handleFileChange = (event) => {
+//     setSelectedFile(event.target.files[0]);
+//   };
+
+//   const handleUpload = () => {
+//     if (!selectedFile) {
+//       alert('Please select a file');
+//       return;
+//     }
+//       // Prepare FormData with the file and filename
+//       const formData = new FormData();
+//       formData.append('file', selectedFile);
+//       formData.append('filename', selectedFile.name);
+
+//       // Send a POST request to your API Gateway endpoint to get the pre-signed URL and file key
+//       axios.get('https://16jkxdhqgg.execute-api.us-east-1.amazonaws.com/development/',  {
+//         headers: {
+//           authorizationToken : "authorizer",
+//           "Content-Type": "application/json",
+//           "Access-Control-Allow-Origin": "*",
+//           "Access-Control-Allow-Headers": "*",
+//           // "Access-Control-Request-Headers": "*",
+//           "Access-Control-Allow-Methods": "*",
+//         }
+//       }).then((response) => {
+//         const uploadUrl = JSON.parse(response.data.body).uploadUrl;
+//         console.log(response);
+//         console.log(uploadUrl);
+  
+//         // Send a PUT request to the pre-signed URL with the file content
+//         axios.put(uploadUrl, selectedFile, {
+//           headers: {
+//             'Content-Type': mime.lookup(selectedFile.name) || 'application/octet-stream'
+//           }
+//         }).then((res)=>{
+//           console.log(res);
+//           alert(`File uploaded successfully to S3`);
+//           window.location.reload(false);
+//         }).catch((err)=>{
+//           console.log(err);
+//         });
+//       }).catch((error) => {
+//       console.error('Error uploading file to S3:', error);
+//     });
+//   };
+
+//   return (
+//     <div>
+//       <input type="file" onChange={handleFileChange} />
+//       <button onClick={handleUpload}>Upload</button>
+//     </div>
+//   );
+// };
+
+// export default UploadComponent;
 
 
 // import React, {useState} from "react";
